@@ -1,0 +1,32 @@
+{
+  "name": "booknode",
+  "version": "1.0.0",
+  "description": "Welcome to BookNode!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ken2020n/BookNode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ken2020n/BookNode/issues"
+  },
+  "homepage": "https://github.com/ken2020n/BookNode#readme",
+  "devDependencies": {
+    "chia": "^0.0.1",
+    "eslint": "^8.20.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "standard-version": "^9.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "pg": "^8.7.3"
+  }
+}

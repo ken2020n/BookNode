@@ -4,6 +4,7 @@
   "description": "Welcome to BookNode!",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --exit",
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/ken2020n/BookNode#readme",
   "devDependencies": {
-    "chia": "^0.0.1",
+    "chai": "^4.3.6",
     "eslint": "^8.20.0",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.19",

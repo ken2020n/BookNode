@@ -1,29 +1,27 @@
 const express = require("express");
 const knex = require("./knex");
 
-require("dotenv").config();
-
 const setupServer = () => {
   const app = express();
   app.use(express.json());
 
   app.get("/test", (req, res) => {
-    res.send("ok").status(200);
+      res.status(200).json({
+        message: "API server connection successful."
+      });
   });
 
   app.get("/dbtest", async (req, res) => {
-    console.log("DB_NAME: ", process.env.DB_NAME);
-    console.log("DB_USER: ", process.env.DB_USER);
-    let result = await knex.select({
-      id: "id",
-      email: "email",
-      name: "name",
-      password: "password",
-    })
-    .from("user");
-    
-    console.log(result);
-    res.send("ok").status(200);
+    let result = await knex.raw(`SELECT 1;`);
+    if (result.rowCount === 1) {
+      res.status(200).json({
+        message: "Database connection successful."
+      });
+    } else {
+      res.status(500).json({
+        message: "Failed to connect to database ."
+      });
+    }
   });
 
   return app;

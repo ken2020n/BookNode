@@ -1,11 +1,13 @@
 const express = require("express");
 const knex = require("./knex");
 
+const userController = require("./controllers/user.controller");
+
 const setupServer = () => {
   const app = express();
   app.use(express.json());
 
-  app.get("/test", (req, res) => {
+  app.get("/test", async (req, res) => {
       res.status(200).json({
         message: "API server connection successful."
       });
@@ -23,6 +25,13 @@ const setupServer = () => {
       });
     }
   });
+
+  // user routes
+  app.get("/user", userController.getAllUsers);
+  app.get("/user/:id", userController.getUserByEmail);
+  app.post("/user", userController.createUser);
+  app.patch("/user/:id", userController.updateUser);
+  app.delete("/user/:id", userController.deleteUser);
 
   return app;
 }

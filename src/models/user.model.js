@@ -31,10 +31,10 @@ const updateUser = async (user) => {
 }
 
 const deleteUser = async (user) => {
-  // return await knex("user")
-  // .del()
-  // .where({ email: user.email })
-  // .where({ password: user.password })
+  return await knex("user")
+  .del()
+  .where({ email: user.email })
+  .where({ password: user.password })
 }
 
 module.exports = {

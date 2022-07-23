@@ -42,18 +42,18 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  // const user = req.body;
-  // try {
-  //   const result = await userModel.deleteUser(user);
-  //   if (result === 1) {
-  //     res.sendStatus(200);
-  //   } else {
-  //     res.status(500).send("Failed to delete user");
-  //   }
-  // } catch (err) {
-  //   console.error(err);
-  //   res.sendStatus(500);
-  // }
+  const user = req.body;
+  try {
+    const result = await userModel.deleteUser(user);
+    if (result === 1) {
+      res.sendStatus(200);
+    } else {
+      res.status(500).send("Failed to delete user");
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 };
 
 module.exports = {

@@ -29,8 +29,11 @@ const setupServer = () => {
   // user
   app.post("/register", userController.register);
   app.post("/login", userController.login);
-  // app.patch("/user/:id", userController.updateUser);
-  // app.delete("/user/:id", userController.deleteUser);
+  app.patch("/user", userController.updateUser);
+  app.delete("/user", userController.deleteUser);
+
+  // book
+
 
   return app;
 };

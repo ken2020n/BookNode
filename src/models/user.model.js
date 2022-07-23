@@ -21,15 +21,25 @@ const login = async (user) => {
   .first();
 };
 
-const updateUser = async () => {
+const updateUser = async (user) => {
+  return await knex("user")
+  .update({
+    name: user.name,
+  })
+  .where({ email: user.email })
+  .where({ password: user.password })
 }
 
-const deleteUser = async () => {
+const deleteUser = async (user) => {
+  // return await knex("user")
+  // .del()
+  // .where({ email: user.email })
+  // .where({ password: user.password })
 }
 
 module.exports = {
   register,
   login,
   updateUser,
-  deleteUser
+  deleteUser 
 };

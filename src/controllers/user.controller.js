@@ -4,11 +4,10 @@ const register = async (req, res) => {
   const user = req.body;
   try {
     const result = await userModel.register(user);
-    console.log(result.rowCount);
     if (result.rowCount === 1) {
       res.sendStatus(200);
     } else {
-      return "Failed to register.";
+      res.status(500).send("Failed to register");
     }
   } catch (err) {
     console.error(err);
@@ -19,9 +18,7 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const user = req.body;
-  console.log(user);
   const result = await userModel.login(user);
-  console.log(result);
   if(result === undefined) {
     res.sendStatus(401);
   } else {
@@ -30,11 +27,33 @@ const login = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  res.send(user).status(200);
+  const user = req.body;
+  try {
+    const result = await userModel.updateUser(user);
+    if (result === 1) {
+      res.sendStatus(200);
+    } else {
+      res.status(500).send("Failed to update user");
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 };
 
 const deleteUser = async (req, res) => {
-  res.send(user).status(200);
+  // const user = req.body;
+  // try {
+  //   const result = await userModel.deleteUser(user);
+  //   if (result === 1) {
+  //     res.sendStatus(200);
+  //   } else {
+  //     res.status(500).send("Failed to delete user");
+  //   }
+  // } catch (err) {
+  //   console.error(err);
+  //   res.sendStatus(500);
+  // }
 };
 
 module.exports = {

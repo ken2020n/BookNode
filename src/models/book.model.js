@@ -35,6 +35,9 @@ const updateBook = async (book) => {
 }
 
 const deleteBook = async (id) => {
+  return await knex("book")
+  .del()
+  .where({ id: id });
 }
 
 module.exports = {

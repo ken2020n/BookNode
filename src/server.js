@@ -2,6 +2,7 @@ const express = require("express");
 const knex = require("./knex");
 
 const userController = require("./controllers/user.controller");
+const bookController = require("./controllers/book.controller");
 
 const setupServer = () => {
   const app = express();
@@ -34,7 +35,10 @@ const setupServer = () => {
   app.delete("/user", userController.deleteUser);
 
   // book
-
+  app.post("/book/create", bookController.create);
+  app.get("/book/:id", bookController.getBook);
+  app.patch("/book/update/", bookController.updateBook);
+  app.delete("/book/delete", bookController.deleteBook);
 
   return app;
 };

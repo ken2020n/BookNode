@@ -44,7 +44,7 @@ const setupServer = () => {
 
   // task
   app.post("/task/create", taskController.create);
-  app.get("/book/:id", taskController.getTask);
+  app.get("/task/:id", taskController.getTask);
   app.patch("/task/update", taskController.updateTask);
   app.delete("/task/delete/:id", taskController.deleteTask);
 

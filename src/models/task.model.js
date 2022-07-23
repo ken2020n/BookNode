@@ -9,17 +9,18 @@ const create = async (task) => {
 }
 
 const getTask = async (id) => {
-  // return await knex
-  // .select({
-  //   id: "id",
-  //   user_id: "user_id",
-  //   title: "title",
-  //   author: "author",
-  //   pages: "pages",
-  // })
-  // .from("book")
-  // .where({ id: id })
-  // .first();
+  return await knex
+  .select({
+    id: "id",
+    book_id: "book_id",
+    begin_page: "begin_page",
+    begin_time: "begin_time",
+    end_page: "end_page",
+    end_time: "end_time",
+  })
+  .from("task")
+  .where({ id: id })
+  .first();
 }
 
 const updateTask = async (book) => {

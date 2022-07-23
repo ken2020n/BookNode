@@ -16,13 +16,13 @@ const create = async (req, res) => {
 };
 
 const getTask = async (req, res) => {
-  // const id = req.params.id;
-  // const result = await bookModel.getBook(id);
-  // if(result === undefined) {
-  //   res.sendStatus(404);
-  // } else {
-  //   res.status(200).send(result);
-  // }
+  const id = req.params.id;
+  const result = await taskModel.getTask(id);
+  if(result === undefined) {
+    res.sendStatus(404);
+  } else {
+    res.status(200).send(result);
+  }
 }
 
 const updateTask = async (req, res) => {

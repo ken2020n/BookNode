@@ -26,34 +26,33 @@ const getTask = async (req, res) => {
 }
 
 const updateTask = async (req, res) => {
-  // const book = req.body;
-  // try {
-  //   const result = await bookModel.updateBook(book);
-  //   if (result === 1) {
-  //     res.sendStatus(200);
-  //   } else {
-  //     res.status(500).send("Failed to update book");
-  //   }
-  // } catch (err) {
-  //   console.error(err);
-  //   res.sendStatus(500);
-  // }
+  const book = req.body;
+  try {
+    const result = await bookModel.updateBook(book);
+    if (result === 1) {
+      res.sendStatus(200);
+    } else {
+      res.status(500).send("Failed to update book");
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 }
 
 const deleteTask = async (req, res) => {
-  // const id = req.params.id;
-  // console.log(id);
-  // try {
-  //   const result = await bookModel.deleteBook(id);
-  //   if (result === 1) {
-  //     res.sendStatus(200);
-  //   } else {
-  //     res.status(500).send("Failed to delete book");
-  //   }
-  // } catch (err) {
-  //   console.error(err);
-  //   res.sendStatus(500);
-  // }
+  const id = req.params.id;
+  try {
+    const result = await bookModel.deleteBook(id);
+    if (result === 1) {
+      res.sendStatus(200);
+    } else {
+      res.status(500).send("Failed to delete book");
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 }
 
 module.exports = {

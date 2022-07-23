@@ -37,6 +37,8 @@ const setupServer = () => {
 
   // book
   app.post("/book/create", bookController.create);
+
+  // todo: app.get("/book", bookController.getBookByUserId);
   app.get("/book/:id", bookController.getBook);
   app.patch("/book/update", bookController.updateBook);
   app.delete("/book/delete/:id", bookController.deleteBook);
@@ -44,6 +46,7 @@ const setupServer = () => {
 
   // task
   app.post("/task/create", taskController.create);
+  // todo: app.get("/task", bookController.getTaskByBookId);
   app.get("/task/:id", taskController.getTask);
   app.patch("/task/update", taskController.updateTask);
   app.delete("/task/delete/:id", taskController.deleteTask);

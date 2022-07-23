@@ -26,6 +26,18 @@ const getBook = async (req, res) => {
 }
 
 const updateBook = async (req, res) => {
+  const book = req.body;
+  try {
+    const result = await bookModel.updateBook(book);
+    if (result === 1) {
+      res.sendStatus(200);
+    } else {
+      res.status(500).send("Failed to update book");
+    }
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
 }
 
 const deleteBook = async (req, res) => {

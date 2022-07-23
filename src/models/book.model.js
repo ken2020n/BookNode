@@ -24,6 +24,14 @@ const getBook = async (id) => {
 }
 
 const updateBook = async (book) => {
+  return await knex("book")
+  .update({
+    title: book.title,
+    author: book.author,
+    pages: book.pages,
+  })
+  .where({ id: book.id })
+  .where({ user_id: book.user_id }) 
 }
 
 const deleteBook = async (id) => {

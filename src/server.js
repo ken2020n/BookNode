@@ -37,7 +37,7 @@ const setupServer = () => {
   // book
   app.post("/book/create", bookController.create);
   app.get("/book/:id", bookController.getBook);
-  app.patch("/book/update/", bookController.updateBook);
+  app.patch("/book/update", bookController.updateBook);
   app.delete("/book/delete", bookController.deleteBook);
 
   return app;

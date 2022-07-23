@@ -8,6 +8,20 @@ const create = async (task) => {
   });
 }
 
+const getTasksByBookId = async (bookId) => {
+  return await knex
+  .select({
+    id: "id",
+    book_id: "book_id",
+    begin_page: "begin_page",
+    begin_time: "begin_time",
+    end_page: "end_page",
+    end_time: "end_time",
+  })
+  .from("task")
+  .where({ book_id: bookId });
+}
+
 const getTask = async (id) => {
   return await knex
   .select({
@@ -40,6 +54,7 @@ const deleteTask = async (id) => {
 
 module.exports = {
   create,
+  getTasksByBookId,
   getTask,
   updateTask,
   deleteTask

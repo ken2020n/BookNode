@@ -42,11 +42,10 @@ const setupServer = () => {
   app.get("/book/:id", bookController.getBook);
   app.patch("/book/update", bookController.updateBook);
   app.delete("/book/delete/:id", bookController.deleteBook);
-  // todo: getPercentage
 
   // task
   app.post("/task/create", taskController.create);
-  // todo: app.get("/task", bookController.getTaskByBookId);
+  app.get("/task/all/:bookId", taskController.getTasksByBookId);
   app.get("/task/:id", taskController.getTask);
   app.patch("/task/update", taskController.updateTask);
   app.delete("/task/delete/:id", taskController.deleteTask);

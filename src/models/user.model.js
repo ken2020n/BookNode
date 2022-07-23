@@ -21,6 +21,18 @@ const login = async (user) => {
   .first();
 };
 
+const getUser = async (id) => {
+  return await knex
+  .select({
+    id: "id",
+    email: "email",
+    name: "name",
+  })
+  .from("user")
+  .where({ id: id })
+  .first();
+};
+
 const updateUser = async (user) => {
   return await knex("user")
   .update({
@@ -40,6 +52,7 @@ const deleteUser = async (user) => {
 module.exports = {
   register,
   login,
+  getUser,
   updateUser,
   deleteUser 
 };

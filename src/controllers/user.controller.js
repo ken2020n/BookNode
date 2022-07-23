@@ -26,6 +26,16 @@ const login = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  const id = req.params.id;
+  const result = await userModel.getUser(id);
+  if(result === undefined) {
+    res.sendStatus(404);
+  } else {
+    res.status(200).send(result);
+  }
+};
+
 const updateUser = async (req, res) => {
   const user = req.body;
   try {
@@ -59,6 +69,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
   register,
   login,
+  getUser,
   updateUser,
   deleteUser
 };

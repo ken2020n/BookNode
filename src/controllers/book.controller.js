@@ -15,6 +15,16 @@ const create = async (req, res) => {
   }
 };
 
+const getBooksByUserId = async (req, res) => {
+  const userId = req.params.userId;
+  const result = await bookModel.getBooksByUserId(userId);
+  if(result === undefined) {
+    res.sendStatus(404);
+  } else {
+    res.status(200).send(result);
+  }
+}
+
 const getBook = async (req, res) => {
   const id = req.params.id;
   const result = await bookModel.getBook(id);
@@ -58,6 +68,7 @@ const deleteBook = async (req, res) => {
 
 module.exports = {
   create,
+  getBooksByUserId,
   getBook,
   updateBook,
   deleteBook

@@ -9,6 +9,19 @@ const create = async (book) => {
   });
 }
 
+const getBooksByUserId = async (userId) => {
+  return await knex
+  .select({
+    id: "id",
+    user_id: "user_id",
+    title: "title",
+    author: "author",
+    pages: "pages",
+  })
+  .from("book")
+  .where({ user_id: userId});
+}
+
 const getBook = async (id) => {
   return await knex
   .select({
@@ -42,6 +55,7 @@ const deleteBook = async (id) => {
 
 module.exports = {
   create,
+  getBooksByUserId,
   getBook,
   updateBook,
   deleteBook

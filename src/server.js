@@ -3,6 +3,7 @@ const knex = require("./knex");
 
 const userController = require("./controllers/user.controller");
 const bookController = require("./controllers/book.controller");
+const taskController = require("./controllers/task.controller");
 
 const setupServer = () => {
   const app = express();
@@ -39,6 +40,13 @@ const setupServer = () => {
   app.get("/book/:id", bookController.getBook);
   app.patch("/book/update", bookController.updateBook);
   app.delete("/book/delete/:id", bookController.deleteBook);
+  // todo: getPercentage
+
+  // task
+  app.post("/task/create", taskController.create);
+  app.get("/book/:id", taskController.getTask);
+  app.patch("/task/update", taskController.updateTask);
+  app.delete("/task/delete/:id", taskController.deleteTask);
 
   return app;
 };

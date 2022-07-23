@@ -26,13 +26,13 @@ const getTask = async (req, res) => {
 }
 
 const updateTask = async (req, res) => {
-  const book = req.body;
+  const task = req.body;
   try {
-    const result = await bookModel.updateBook(book);
+    const result = await taskModel.updateTask(task);
     if (result === 1) {
       res.sendStatus(200);
     } else {
-      res.status(500).send("Failed to update book");
+      res.status(500).send("Failed to update task");
     }
   } catch (err) {
     console.error(err);

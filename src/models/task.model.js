@@ -23,15 +23,13 @@ const getTask = async (id) => {
   .first();
 }
 
-const updateTask = async (book) => {
-  // return await knex("book")
-  // .update({
-  //   title: book.title,
-  //   author: book.author,
-  //   pages: book.pages,
-  // })
-  // .where({ id: book.id })
-  // .where({ user_id: book.user_id }) 
+const updateTask = async (task) => {
+  return await knex("task")
+  .update({
+    end_page: task.end_page,
+    end_time: task.end_time,
+  })
+  .where({ id: task.id })
 }
 
 const deleteTask = async (id) => {

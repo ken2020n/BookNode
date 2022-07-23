@@ -43,11 +43,11 @@ const updateTask = async (req, res) => {
 const deleteTask = async (req, res) => {
   const id = req.params.id;
   try {
-    const result = await bookModel.deleteBook(id);
+    const result = await taskModel.deleteTask(id);
     if (result === 1) {
       res.sendStatus(200);
     } else {
-      res.status(500).send("Failed to delete book");
+      res.status(500).send("Failed to delete task");
     }
   } catch (err) {
     console.error(err);

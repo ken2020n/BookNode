@@ -33,9 +33,9 @@ const updateTask = async (task) => {
 }
 
 const deleteTask = async (id) => {
-  // return await knex("book")
-  // .del()
-  // .where({ id: id });
+  return await knex("task")
+  .del()
+  .where({ id: id });
 }
 
 module.exports = {

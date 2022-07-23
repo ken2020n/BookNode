@@ -8,32 +8,34 @@ const setupServer = () => {
   app.use(express.json());
 
   app.get("/test", async (req, res) => {
-      res.status(200).json({
-        message: "API server connection successful."
-      });
+    res.status(200).json({
+      message: "API server connection successful.",
+    });
   });
 
   app.get("/dbtest", async (req, res) => {
     let result = await knex.raw(`SELECT 1;`);
     if (result.rowCount === 1) {
       res.status(200).json({
-        message: "Database connection successful."
+        message: "Database connection successful.",
       });
     } else {
       res.status(500).json({
-        message: "Failed to connect to database ."
+        message: "Failed to connect to database .",
       });
     }
   });
 
-  // user routes
-  app.get("/user", userController.getAllUsers);
-  app.get("/user/:id", userController.getUserByEmail);
-  app.post("/user", userController.createUser);
-  app.patch("/user/:id", userController.updateUser);
-  app.delete("/user/:id", userController.deleteUser);
+  // user
+  app.post("/register", userController.register);
+  app.post("/login", userController.login);
+  // app.get("/user", userController.getAllUsers);
+  // app.get("/user/:id", userController.getUserByEmail);
+  // app.post("/user", userController.createUser);
+  // app.patch("/user/:id", userController.updateUser);
+  // app.delete("/user/:id", userController.deleteUser);
 
   return app;
-}
+};
 
 module.exports = { setupServer };

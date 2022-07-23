@@ -29,27 +29,6 @@ const login = async (req, res) => {
   }
 };
 
-const getAllUsers = async (req, res) => {
-  const allUsers = await userModel.getAllUsers();
-  res.send(allUsers).status(200);
-};
-
-const getUserByEmail = async (req, res) => {
-  const email = req.body.email;
-  console.log(email);
-  const user = await userModel.getUserByEmail(email);
-  console.log(user);
-  // res.send("xx").status(200);
-};
-
-const createUser = async (req, res) => {
-  // const user = req.params;
-  // const result = await userModel.createUser(user);
-  // console.log(result);
-
-  // res.send("create").status(200);
-};
-
 const updateUser = async (req, res) => {
   res.send(user).status(200);
 };
@@ -61,9 +40,6 @@ const deleteUser = async (req, res) => {
 module.exports = {
   register,
   login,
-  getAllUsers,
-  getUserByEmail,
-  createUser,
   updateUser,
   deleteUser
 };

@@ -21,37 +21,6 @@ const login = async (user) => {
   .first();
 };
 
-const getAllUsers = async () => {
-  return await knex
-  .select({
-    id: "id",
-    email: "email",
-    name: "name",
-    password: "password",
-  })
-  .from("user");
-};
-
-const getUserByEmail = async (email) => {
-  return await knex
-  .select({
-    id: "id",
-    email: "email",
-    name: "name",
-    password: "password",
-  })
-  .from("user")
-  .where({ email: email });
-};
-
-const createUser = async (user) => {
-  return knex("test").insert({
-    email: user.email,
-    name: user.name,
-    password: user.password,
-  });
-}
-
 const updateUser = async () => {
 }
 
@@ -61,9 +30,6 @@ const deleteUser = async () => {
 module.exports = {
   register,
   login,
-  getAllUsers,
-  getUserByEmail,
-  createUser,
   updateUser,
   deleteUser
 };

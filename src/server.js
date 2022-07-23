@@ -29,9 +29,6 @@ const setupServer = () => {
   // user
   app.post("/register", userController.register);
   app.post("/login", userController.login);
-  // app.get("/user", userController.getAllUsers);
-  // app.get("/user/:id", userController.getUserByEmail);
-  // app.post("/user", userController.createUser);
   // app.patch("/user/:id", userController.updateUser);
   // app.delete("/user/:id", userController.deleteUser);
 
